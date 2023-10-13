@@ -7,16 +7,31 @@ function App() {
 
   return (
     <>
-      <h1>Goededoel</h1>
-      <div className="card">
-        <button>
-          Goededoel
-        </button>
-      </div>
-      <div className="card">
-        <button>
-          Goededoel
-        </button>
+      <div className="leaderboard">
+        <div className="leaderboard-card">
+          <div className="left-info">
+            <div className="charity-logo">
+              <img src="" alt="charity-logo" />
+            </div>
+            <div className="charity-info">
+              <div className="charity-name">
+
+              </div>
+              <div className="charity-description">
+
+              </div>
+            </div>
+          </div>
+
+          <div className="right-info">
+            <div className="placement">
+
+            </div>
+            <div className="votes">
+
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )
