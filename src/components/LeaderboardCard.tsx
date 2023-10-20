@@ -1,23 +1,24 @@
+import { css } from '@emotion/css'
 import '../App.css'
 
 const LeaderboardCard = () => {
     return(
-    <div className="leaderboard-card">
-        <div className="left-info">
-            <img className="charity-logo" src=''/>
-            <div className="charity-info">
-            <div className="charity-name">
-                <p>AAA batterijen</p>
+    <div className={styles['leaderboard-card']}>
+        <div className={styles['left-info']}>
+            <img className={styles['charity-logo']} src=''/>
+            <div className={styles['charity-info']}>
+            <div>
+                <p className={styles['charity-name']}>AAA batterijen</p>
             </div>
-            <div className="charity-description hidden">
-                <p>Goede doel, AAAAAAAAAAAAAAAAAA</p>
+            <div>
+                <p className={styles['charity-description']}>Goede doel, AAAAAAAAAAAAAAAAAA</p>
             </div>
             </div>
         </div>
 
-        <div className="right-info">
-            <div className="placement">
-            <p>#2</p>
+        <div className={styles['right-info']}>
+            <div>
+            <p className={styles.placement}>#2</p>
             </div>
             <div className="votes">
             5.121 votes
@@ -25,6 +26,68 @@ const LeaderboardCard = () => {
         </div>
     </div>
     )
+}
+const styles = {
+    'leaderboard-card': css`
+    height: 5rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 .25rem .25rem rgb(220, 220, 220);
+    border-radius: .5rem;
+    display: flex;
+    justify-content: space-between;
+    padding: .25rem;
+    margin-bottom: .5rem;
+    height: 100%;`,
+
+    'left-info': css`
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 70%;`,
+
+    'charity-logo': css`
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 100vw;
+    margin-right: .5rem;
+    box-shadow: .1rem .1rem .25rem rgb(190, 190, 190);`,
+
+    'charity-info': css`
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;`,
+
+    'charity-name': css`
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;`,
+
+    'charity-description': css`
+    font-weight: 100;
+    font-size: 1rem;
+    margin: 0;
+    display: flex;
+    justify-content: start;`,
+
+    'right-info': css`
+    height: 100%;
+    width: 25%;
+    display: flex;
+    justify-content: end;
+    align-items: center;`,
+
+    'placement': css`
+    font-weight: 900;
+    font-size: 3rem;
+    margin: 0;`,
+
+    'votes': css`
+    font-weight: 400;
+    font-size: 1rem;
+    transform: translateY(-.5rem);
+    margin: 0;`,
 }
 
 export default LeaderboardCard
