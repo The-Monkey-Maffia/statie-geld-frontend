@@ -5,7 +5,11 @@ function App() {
 
   return (
     <>
+      <div className="leaderboard">
+        {
           <Leaderboard />
+        }
+      </div>
     </>
   )
 }
