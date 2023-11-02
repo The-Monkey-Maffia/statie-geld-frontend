@@ -31,7 +31,7 @@ const styles = {
     'leaderboard-card': css`
     height: 5rem;
     background-color: #DFCCFB;
-    box-shadow:  .15rem .15rem 0 #BEADFA;
+    box-shadow:  -.15rem .15rem 0 #BEADFA;
     border-radius: .5rem;
     display: flex;
     justify-content: space-between;
@@ -62,7 +62,10 @@ const styles = {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: start;`,
+    align-items: start;
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 900;`,
 
     'charity-description': css`
     font-weight: 100;
