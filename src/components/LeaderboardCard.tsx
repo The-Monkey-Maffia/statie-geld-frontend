@@ -30,8 +30,8 @@ const LeaderboardCard = () => {
 const styles = {
     'leaderboard-card': css`
     height: 5rem;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 .25rem .25rem rgb(220, 220, 220);
+    background-color: #DFCCFB;
+    box-shadow:  .15rem .15rem 0 #BEADFA;
     border-radius: .5rem;
     display: flex;
     justify-content: space-between;
