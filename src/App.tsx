@@ -1,4 +1,5 @@
 import './App.css'
+import Leaderboard from './components/Leaderboard'
 import LeaderboardCard from './components/LeaderboardCard'
 
 function App() {
@@ -7,9 +8,11 @@ function App() {
     <>
       <div className="leaderboard">
         <h1 className='title'>LEADERBOARD</h1>
+        {
+          <Leaderboard />
+          /* <LeaderboardCard />
         <LeaderboardCard />
-        <LeaderboardCard />
-        <LeaderboardCard />
+        <LeaderboardCard /> */}
       </div>
     </>
   )
