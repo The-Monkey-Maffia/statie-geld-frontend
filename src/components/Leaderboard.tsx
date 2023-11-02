@@ -13,7 +13,7 @@ const Leaderboard = () => {
 
   return (
     <div className="leaderboard">
-      <h1>Leaderboard</h1>
+      <h1 className='title'>Leaderboard</h1>
       {leaderboardData.map((player, index) => (
         <LeaderboardCard key={index} name={player.name} score={player.score} placement={player.placement} />
       ))}

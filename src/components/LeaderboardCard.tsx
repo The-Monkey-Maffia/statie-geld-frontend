@@ -82,9 +82,9 @@ const styles = {
 
     'right-info': css`
     height: 100%;
-    width: 25%;
+    width: 11%;
     display: flex;
-    justify-content: end;
+    justify-content: start;
     align-items: center;`,
 
     'placement': css`
