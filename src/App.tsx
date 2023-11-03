@@ -1,6 +1,7 @@
 import './App.css'
 import Leaderboard from './components/Leaderboard'
 import LeaderboardCard from './components/LeaderboardCard'
+import ScanComponent from './components/ScanComponent'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <LeaderboardCard />
         <LeaderboardCard /> */}
       </div>
+      <ScanComponent />
     </>
   )
 }
