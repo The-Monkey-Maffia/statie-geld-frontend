@@ -1,37 +1,43 @@
 import { css } from '@emotion/css'
 import '../App.css'
 
-const LeaderboardCard = () => {
-    return(
-    <div className={styles['leaderboard-card']}>
+interface LeaderboardCardProps {
+    name: string;
+    score: number;
+    placement: number;
+  }
+  
+  const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ name, score, placement }) => {
+    return (
+      <div className={styles['leaderboard-card']}>
         <div className={styles['left-info']}>
-            <img className={styles['charity-logo']} src=''/>
-            <div className={styles['charity-info']}>
+          <img className={styles['charity-logo']} src=''/>
+          <div className={styles['charity-info']}>
             <div>
-                <p className={styles['charity-name']}>AAA batterijen</p>
+              <p className={styles['charity-name']}>{name}</p>
             </div>
             <div>
-                <p className={styles['charity-description']}>Goede doel, AAAAAAAAAAAAAAAAAA</p>
+              <p className={styles['charity-description']}>Description</p>
             </div>
-            </div>
+          </div>
         </div>
-
+  
         <div className={styles['right-info']}>
-            <div>
-            <p className={styles.placement}>#2</p>
-            </div>
-            <div className="votes">
-            5.121 votes
-            </div>
+          <div>
+          <p className={styles.placement}>#{placement}</p> {/* Hier wordt de plaatsing weergegeven */}
+          </div>
+          <div className="votes">
+            {score} {/* Hier wordt de score weergegeven */}
+          </div>
         </div>
-    </div>
-    )
-}
+      </div>
+    );
+  };
 const styles = {
     'leaderboard-card': css`
     height: 5rem;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 .25rem .25rem rgb(220, 220, 220);
+    background-color: #DFCCFB;
+    box-shadow:  -.15rem .15rem 0 #BEADFA;
     border-radius: .5rem;
     display: flex;
     justify-content: space-between;
@@ -62,7 +68,10 @@ const styles = {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: start;`,
+    align-items: start;
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 900;`,
 
     'charity-description': css`
     font-weight: 100;
@@ -73,9 +82,9 @@ const styles = {
 
     'right-info': css`
     height: 100%;
-    width: 25%;
+    width: 11%;
     display: flex;
-    justify-content: end;
+    justify-content: start;
     align-items: center;`,
 
     'placement': css`
