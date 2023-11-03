@@ -3,11 +3,12 @@ import '../App.css'
 
 interface LeaderboardCardProps {
     name: string;
+    description: string;
     score: number;
     placement: number;
   }
   
-  const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ name, score, placement }) => {
+  const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ name, score, description, placement }) => {
     return (
       <div className={styles['leaderboard-card']}>
         <div className={styles['left-info']}>
@@ -17,7 +18,7 @@ interface LeaderboardCardProps {
               <p className={styles['charity-name']}>{name}</p>
             </div>
             <div>
-              <p className={styles['charity-description']}>Description</p>
+              <p className={styles['charity-description']}>{description}</p>
             </div>
           </div>
         </div>
