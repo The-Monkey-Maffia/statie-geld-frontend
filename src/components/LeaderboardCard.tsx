@@ -36,8 +36,8 @@ interface LeaderboardCardProps {
 const styles = {
     'leaderboard-card': css`
     height: 5rem;
-    background-color: #DFCCFB;
-    box-shadow:  -.15rem .15rem 0 #BEADFA;
+    background-color: #9BBEC8;
+    box-shadow:  -.15rem .15rem 0 #164863;
     border-radius: .5rem;
     display: flex;
     justify-content: space-between;
@@ -56,7 +56,7 @@ const styles = {
     width: 4.5rem;
     border-radius: 100vw;
     margin-right: .5rem;
-    box-shadow: .1rem .1rem .25rem rgb(190, 190, 190);`,
+    box-shadow: .1rem .1rem .25rem #164863;`,
 
     'charity-info': css`
     display: flex;
@@ -100,3 +100,7 @@ const styles = {
 }
 
 export default LeaderboardCard
+
+// purple
+// dark:#DFCCFB medium: light:
+// 1:#164863 2:#427D9D 3:#9BBEC8 4:#DDF2FD

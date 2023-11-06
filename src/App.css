@@ -1,7 +1,7 @@
 .leaderboard {
   width: 50rem;
-  background-color: #D0BFFF;
-  box-shadow:  -.15rem .15rem 0 #BEADFA;
+  background-color: #427D9D;
+  box-shadow:  -.15rem .15rem 0 #164863;
   padding: 1rem;
   border-radius: .5rem;
 }
@@ -9,7 +9,7 @@
   font-size: 3rem;
   display: inline;
   color: white;
-  text-shadow: .1rem .1rem 0 #BEADFA;
+  text-shadow: .1rem .1rem 0 #164863;
 }
 /* .left-info,.charity-info { height: 100%; }
 .leaderboard-card {
