@@ -34,6 +34,8 @@ interface LeaderboardCardProps {
       </div>
     );
   };
+
+
 const styles = {
     'leaderboard-card': css`
     height: 5rem;

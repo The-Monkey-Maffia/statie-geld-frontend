@@ -1,15 +1,16 @@
 import '../App.css';
 import LeaderboardCard from './LeaderboardCard';
 
+
 const Leaderboard = () => {
   const leaderboardData = [
-    { name: "Kika", score: 100, description: "Hulp voor kinderen van kanker", placement: 1 },
+    { name: "Kika", score: 120, description: "Hulp voor kinderen van kanker", placement: 1 },
     { name: "WWF", score: 85, description: "World Wide Fond voor de natuur", placement: 2 },
     { name: "Dierenlot", score: 120, description: "Stichting voort dieren", placement: 3 },
     // Voeg meer spelers toe...
   ];
 
-//   leaderboardData.sort((a, b) => a.placement - b.placement);
+//   leaderboardData.sort((a, b) => a.placement - b.placement);f
 
   return (
     <div className="leaderboard">
@@ -20,4 +21,7 @@ const Leaderboard = () => {
     </div>
   );
 };
+
+
+
 export default Leaderboard;
