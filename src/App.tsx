@@ -6,12 +6,9 @@ function App() {
 
   return (
     <>
-
-        
-          <Leaderboard />
-          
-
-      <ScanComponent />
+    <Leaderboard />
+    
+    <ScanComponent />
     </>
   )
 }

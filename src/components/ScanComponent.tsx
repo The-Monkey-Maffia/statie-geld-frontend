@@ -1,14 +1,26 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 function ScanComponent() {
+    const scannedCodes: string[] = [];
+    let barcode: string = '';
 
-    const handleKeyPress = (event:any) => {
-        console.log('Key pressed:', event.key);
+    const handleKeyPress = (event: KeyboardEvent) => {
+        // console.log('Key pressed:', event.key);
+
+        if (event.key === 'Enter') {
+            console.log('Barcode scanned:', barcode);
+            scannedCodes.push(barcode);
+            barcode = ''; // Clear the barcode string
+            console.log(scannedCodes);
+        } else {
+            barcode = barcode + event.key;
+        }
+
         // Perform actions based on the key pressed
     };
 
     useEffect(() => {
-        const handleKeyPressEvent = (event:any) => {
+        const handleKeyPressEvent = (event: KeyboardEvent) => {
             handleKeyPress(event);
         };
 
@@ -28,4 +40,4 @@ function ScanComponent() {
     );
 }
 
-export default ScanComponent
+export default ScanComponent;
