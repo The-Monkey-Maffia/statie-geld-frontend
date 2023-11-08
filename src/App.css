@@ -1,9 +1,29 @@
 .leaderboard {
   width: 50rem;
-  background-color: #427D9D;
   box-shadow:  -.15rem .15rem 0 #164863;
+  background: rgb(22,72,99);
+  background: linear-gradient(358deg, rgba(22,72,99,1) 0%, rgba(66,125,157,1) 55%, rgba(155,190,200,1) 100%);
   padding: 1rem;
   border-radius: .5rem;
+}
+
+@media only screen and (max-width: 845px) {
+  .leaderboard {
+    width: 40rem;
+    padding: .8rem;
+  }
+}
+@media only screen and (max-width: 685px) {
+  .leaderboard {
+    width: 30rem;
+    padding: .6rem;
+  }
+}
+@media only screen and (max-width: 535px) {
+  .leaderboard {
+    width: 20rem;
+    padding: .4rem;
+  }
 }
 .title {
   font-size: 3rem;
