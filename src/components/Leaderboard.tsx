@@ -7,18 +7,8 @@ const Leaderboard = () => {
 
   const [apiData, setData] = useState<[{aantal_votes: number, id: number, info: string, link: string, name: string}]>()
 
-  // const leaderboardData = [
-  //   { name: "Kika", score: 100, description: "Hulp voor kinderen van kanker", placement: 1 },
-  //   { name: "WWF", score: 85, description: "World Wide Fond voor de natuur", placement: 2 },
-  //   { name: "Dierenlot", score: 120, description: "Stichting voort dieren", placement: 3 },
-  //   // Voeg meer spelers toe...
-  // ];
   
   useEffect(() => {
-    // const data = async() => {
-    //   const data = await axios.get('http://localhost:3000/get/goededoel/')
-    //   return data;
-    // }
 
     // const apiData = data()
     // console.log(apiData);
