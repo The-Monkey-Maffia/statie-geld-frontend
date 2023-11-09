@@ -10,8 +10,6 @@ const Leaderboard = () => {
   
   useEffect(() => {
 
-    // const apiData = data()
-    // console.log(apiData);
     axios.get('http://localhost:3000/get/goededoel/')
     .then((response) => {
       setData(response.data.data)
