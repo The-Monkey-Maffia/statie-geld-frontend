@@ -49,8 +49,10 @@ const styles = {
   flex-direction: row;
   margin: 5px;
   border-radius: 12px;
+  transition: .1s ease;
   &:active {
     background-color: #164863;
+    transform: scale(1.05);
   }
   `,
   
