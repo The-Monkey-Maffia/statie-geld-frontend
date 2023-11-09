@@ -6,14 +6,11 @@ import axios from 'axios';
 const Leaderboard = () => {
 
   const [apiData, setData] = useState<[{aantal_votes: number, id: number, info: string, link: string, name: string}]>()
-
-  
   useEffect(() => {
 
     axios.get('http://localhost:3000/get/goededoel/')
     .then((response) => {
       setData(response.data.data)
-      console.log(response.data.data)
     })
 
   }, [])
