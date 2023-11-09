@@ -12,7 +12,7 @@ interface LeaderboardCardProps {
     return (
       <div className={styles['leaderboard-card']}>
         <div className={styles['left-info']}>
-          <img className={styles['charity-logo']} src=''/>
+          {/* <img className={styles['charity-logo']} src=''/> */}
           <div className={styles['charity-info']}>
             <div>
               <p className={styles['charity-name']}>{name}</p>
@@ -58,7 +58,7 @@ const styles = {
     height: 4.5rem;
     width: 4.5rem;
     border-radius: 100vw;
-    margin-right: .5rem;
+    margin-right: 7.5%;
     box-shadow: .1rem .1rem .25rem #164863;`,
 
     'charity-info': css`

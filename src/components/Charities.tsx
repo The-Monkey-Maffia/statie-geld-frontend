@@ -18,7 +18,7 @@ const Leaderboard = () => {
     background: rgb(22,72,99);
     background: linear-gradient(358deg, rgba(22,72,99,1) 0%, rgba(66,125,157,1) 55%, rgba(155,190,200,1) 100%);
     box-shadow:  -.15rem .15rem 0 #164863;
-    padding: 1rem;
+    padding: .5rem;
     border-radius: .5rem;`,
 
     'title': css`
