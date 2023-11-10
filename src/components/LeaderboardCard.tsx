@@ -41,6 +41,7 @@ const styles = {
     height: 5rem;
     background-color: #9BBEC8;
     box-shadow:  -.15rem .15rem 0 #164863;
+    border-bottom: 1px solid #164863;
     border-radius: .5rem;
     display: flex;
     justify-content: space-between;

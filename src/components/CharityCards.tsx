@@ -51,7 +51,7 @@ const styles = {
   border-radius: 12px;
   transition: .1s ease;
   &:active {
-    background-color: #164863;
+    background-color: #cae4eb;
     transform: scale(1.05);
   }
   `,

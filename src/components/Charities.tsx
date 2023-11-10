@@ -36,7 +36,7 @@ const Leaderboard = () => {
   return (
     <>
       <div className={styles['voting']}>
-      <h1 className={styles['title']}>VOTE</h1>
+      <h1 className={styles['title']}>Vote</h1>
       {leaderboardData.map((player, index) => (
       <CharityCards key={index} photo={player.photo} name={player.name} />
       ))}
