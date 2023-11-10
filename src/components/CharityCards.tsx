@@ -6,7 +6,7 @@ interface LeaderboardCardProps {
   name: string;
 }
 
-const CharityCards: React.FC<LeaderboardCardProps> = ({ photo }, {name}) => {
+const CharityCards: React.FC<LeaderboardCardProps> = ({ photo, name }) => {
   const handleButtonClick = (Vote_Name: string) => {
     return () => {
       const storedValue = localStorage.getItem('STATS_UUID');

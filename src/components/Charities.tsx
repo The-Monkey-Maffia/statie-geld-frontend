@@ -2,8 +2,8 @@ import '../index.css';
 import { css } from '@emotion/css'
 import CharityCards from './CharityCards';
 
-const Leaderboard = () => {
-  const leaderboardData = [
+const Charities = () => {
+  const CharityData = [
     { photo: "https://shaolin-vechtkunst.nl/wp-content/uploads/2016/03/kika-logo.jpg", name: "kika" },
     { photo: "https://www.copman.be/project/wp-content/uploads/WWF-226x300-1.jpg", name: "WWF" },
     { photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGKagyXMMuaWyBHeN3iGlOvOOF1c7EVE3ziQ&usqp=CAU", name: "test" },
@@ -37,7 +37,7 @@ const Leaderboard = () => {
     <>
       <div className={styles['voting']}>
       <h1 className={styles['title']}>Vote</h1>
-      {leaderboardData.map((player, index) => (
+      {CharityData.map((player, index) => (
       <CharityCards key={index} photo={player.photo} name={player.name} />
       ))}
       </div>
@@ -45,4 +45,4 @@ const Leaderboard = () => {
       </>
   );
 };
-export default Leaderboard;
+export default Charities;
