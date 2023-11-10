@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import '../index.css';
 import LeaderboardCard from './LeaderboardCard';
 import axios from 'axios';
 
