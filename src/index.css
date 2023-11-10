@@ -25,9 +25,9 @@ body {
 .leaderboard {
   width: 50rem;
   box-shadow:  -.15rem .15rem 0 #164863;
-  /* background: rgb(22,72,99);
-  background: linear-gradient(358deg, rgba(22,72,99,1) 0%, rgba(66,125,157,1) 55%, rgba(155,190,200,1) 100%); */
-  background-image: url(./assets/images/blue-2.jpg);
+  background: rgb(22,72,99);
+  /* background: linear-gradient(358deg, rgba(22,72,99,1) 0%, rgba(66,125,157,1) 55%, rgba(155,190,200,1) 100%); */
+  /* background-image: url(./assets/images/blue-2.jpg); */
   padding: 1rem;
   border-radius: .5rem;
   
