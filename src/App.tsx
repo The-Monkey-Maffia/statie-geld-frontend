@@ -1,4 +1,4 @@
-import './App.css'
+import './index.css'
 import Leaderboard from './components/Leaderboard'
 import ScanComponent from './components/ScanComponent'
 

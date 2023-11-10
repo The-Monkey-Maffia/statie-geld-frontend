@@ -16,6 +16,7 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
+  /* background-image: url(./assets/images/blue-1.jpg); */
 }
 
 .leaderboard {
