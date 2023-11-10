@@ -1,4 +1,3 @@
-import '../App.css';
 import { css } from '@emotion/css'
 import CharityCards from './CharityCards';
 

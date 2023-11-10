@@ -1,5 +1,4 @@
-import './App.css'
-import Charities from './components/Charities.tsx'
+import Charities from './Charities'
 
 function App() {
 
