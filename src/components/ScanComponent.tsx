@@ -57,9 +57,12 @@ function ScanComponent() {
         <div className='productInfo'>
             <ul className={styles['card']}>
             <h1 className={styles['title']}>Products</h1>
-                {titles.map((title, index) => (
-                    <li className={styles['item']} key={index}>1x {title}</li>
-                ))}
+                {titles.map((title, index) => {
+                        return (
+                            <li className={styles['item']} key={index}>1x {title}</li>
+                        )
+                    }
+                )}
             </ul>
         </div>
     );
