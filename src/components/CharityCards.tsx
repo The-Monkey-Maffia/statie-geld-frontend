@@ -3,12 +3,12 @@ import { css } from '@emotion/css'
 import Swal from 'sweetalert2';
 import axios from 'axios';
 
-interface LeaderboardCardProps {
+interface CharityCardProps {
   photo: string;
   name: string;
 }
 
-const CharityCards: React.FC<LeaderboardCardProps> = ({ photo, name }) => {
+const CharityCards: React.FC<CharityCardProps> = ({ photo, name }) => {
   const handleButtonClick = (Vote_Name: string) => {
     return () => {
       Swal.fire({
@@ -64,6 +64,7 @@ const styles = {
   width: 45%;
   display: grid;
   justify-content: center;
+  cursor: pointer;
   box-shadow:  -.15rem .15rem 0 #082535;
   border: none;
   padding: 15px 32px;
