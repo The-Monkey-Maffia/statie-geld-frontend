@@ -7,7 +7,7 @@ async function getBarcodeTitle(barcode: string) {
 }
 
 function ScanComponent() {
-    const [scannedCodes, setScannedCodes] = useState<string[]>(["3254381062561", "3254381062561", "3254381062561"]);
+    const [scannedCodes, setScannedCodes] = useState<string[]>([]);
     const [titles, setTitles] = useState<string[]>([]);
 
     let barcode: string = '';
@@ -15,8 +15,7 @@ function ScanComponent() {
     const handleKeyPress = async (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
             console.log('Barcode scanned:', barcode);
-            scannedCodes.push(barcode);
-            setScannedCodes([...scannedCodes]);
+            setScannedCodes([...scannedCodes, barcode]);
             barcode = ''; // Clear the barcode string
             console.log(scannedCodes);
         } else {
