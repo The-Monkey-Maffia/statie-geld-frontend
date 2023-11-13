@@ -47,7 +47,8 @@ const styles = {
     justify-content: space-between;
     padding: .25rem;
     margin-bottom: .5rem;
-    height: 100%;`,
+    height: 100%;
+    user-select: none;`,
 
     'left-info': css`
     display: flex;
@@ -99,7 +100,6 @@ const styles = {
     'votes': css`
     font-weight: 400;
     font-size: 1rem;
-    transform: translateY(-.5rem);
     margin: 0;`,
 }
 
