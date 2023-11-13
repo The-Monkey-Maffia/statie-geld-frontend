@@ -11,13 +11,12 @@ const Charities = () => {
   ];
 
   const styles = {
-    'voting': css`
+    'card': css`
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
-    background: rgb(22,72,99);
-    background: linear-gradient(358deg, rgba(22,72,99,1) 0%, rgba(66,125,157,1) 55%, rgba(155,190,200,1) 100%);
-    box-shadow:  -.15rem .15rem 0 #164863;
+    background: #164863;
+    box-shadow:  -.15rem .15rem 0 #082535;
     padding: .5rem;
     border-radius: .5rem;`,
 
@@ -26,20 +25,24 @@ const Charities = () => {
     display: block;
     color: white;
     margin: 0 0 0 1rem;
-    text-shadow: .1rem .1rem 0 #164863;
-    width: 20rem;`
-    
-  }
+    text-shadow: .1rem .1rem 0 #082535;
+    width: 20rem;`,
 
-  
+    'charities': css`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;`,
+  }
 
   return (
     <>
-      <div className={styles['voting']}>
+      <div className={styles['card']}>
       <h1 className={styles['title']}>Vote</h1>
-      {CharityData.map((player, index) => (
-      <CharityCards key={index} photo={player.photo} name={player.name} />
-      ))}
+        <div className={styles['charities']}>
+          {CharityData.map((player, index) => (
+            <CharityCards key={index} photo={player.photo} name={player.name} />
+          ))}
+        </div>
       </div>
       
       </>
