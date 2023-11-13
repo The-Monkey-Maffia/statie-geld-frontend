@@ -2,22 +2,25 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 async function getBarcodeTitle(barcode: string) {
-    const response = await axios.get(`http://localhost:3000/get/drinks/${barcode}`);
-    return response.data.data[0].name;
+    const response = await axios.get(`http://localhost:3000/get/drinks/${barcode}`)
+    if (response.data.data.length === 0) {
+        axios.post('http://localhost:3000/post/drinks/bar', {
+            barcode_id: barcode
+        })
+    } else {
+        return response?.data.data[0].name
+    }
 }
 
 function ScanComponent() {
     const [scannedCodes, setScannedCodes] = useState<string[]>([]);
     const [titles, setTitles] = useState<string[]>([]);
-
     let barcode: string = '';
 
     const handleKeyPress = async (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
-            console.log('Barcode scanned:', barcode);
             setScannedCodes([...scannedCodes, barcode]);
             barcode = ''; // Clear the barcode string
-            console.log(scannedCodes);
         } else {
             barcode = barcode + event.key;
         }
@@ -52,9 +55,13 @@ function ScanComponent() {
     return (
         <div>
             <ul>
-                {titles.map((title, index) => (
-                    <li key={index}>{title}</li>
-                ))}
+                {titles.map((title, index) => {
+                    if (typeof title === 'string' && title.length !== undefined && title.length !== 0) {
+                        return(
+                            <li key={index}>{title}</li>
+                        )
+                    }
+                })}
             </ul>
         </div>
     );
