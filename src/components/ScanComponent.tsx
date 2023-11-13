@@ -3,22 +3,25 @@ import { css } from '@emotion/css'
 import { useEffect, useState } from 'react';
 
 async function getBarcodeTitle(barcode: string) {
-    const response = await axios.get(`http://localhost:3000/get/drinks/${barcode}`);
-    return response.data.data[0].name;
+    const response = await axios.get(`http://localhost:3000/get/drinks/${barcode}`)
+    if (response.data.data.length === 0) {
+        axios.post('http://localhost:3000/post/drinks/bar', {
+            barcode_id: barcode
+        })
+    } else {
+        return response?.data.data[0].name
+    }
 }
 
 function ScanComponent() {
     const [scannedCodes, setScannedCodes] = useState<string[]>(["3254381062561", "3254381062561", "3254381062561","3254381062561"]);
     const [titles, setTitles] = useState<string[]>([]);
-
     let barcode: string = '';
 
     const handleKeyPress = async (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
-            console.log('Barcode scanned:', barcode);
             setScannedCodes([...scannedCodes, barcode]);
             barcode = ''; // Clear the barcode string
-            console.log(scannedCodes);
         } else {
             barcode = barcode + event.key;
         }
@@ -54,9 +57,12 @@ function ScanComponent() {
         <div className='productInfo'>
             <ul className={styles['card']}>
             <h1 className={styles['title']}>Products</h1>
-                {titles.map((title, index) => (
-                    <li className={styles['item']} key={index}>1x {title}</li>
-                ))}
+                {titles.map((title, index) => {
+                        return (
+                            <li className={styles['item']} key={index}>1x {title}</li>
+                        )
+                    }
+                )}
             </ul>
         </div>
     );
