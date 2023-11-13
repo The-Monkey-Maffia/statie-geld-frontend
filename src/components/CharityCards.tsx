@@ -52,13 +52,13 @@ const CharityCards: React.FC<LeaderboardCardProps> = ({ photo, name }) => {
   };
 
   return (
-    <button className={styles['leaderboard-card']} onClick={handleButtonClick(name)}>
+    <button className={styles['charity-card']} onClick={handleButtonClick(name)}>
       <img className={styles['charity-logo']} src={photo} alt="Charity Logo" />
     </button>
   );
 };
 const styles = {
-  'leaderboard-card': css`
+  'charity-card': css`
   background-color: #9BBEC8;
   height: 45%;
   width: 45%;

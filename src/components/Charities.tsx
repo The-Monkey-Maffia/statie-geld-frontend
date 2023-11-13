@@ -37,9 +37,11 @@ const Charities = () => {
     <>
       <div className={styles['voting']}>
       <h1 className={styles['title']}>Vote</h1>
-      {CharityData.map((player, index) => (
-      <CharityCards key={index} photo={player.photo} name={player.name} />
-      ))}
+        <div>
+          {CharityData.map((player, index) => (
+            <CharityCards key={index} photo={player.photo} name={player.name} />
+          ))}
+        </div>
       </div>
       
       </>
