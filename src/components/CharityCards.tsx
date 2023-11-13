@@ -64,6 +64,7 @@ const styles = {
   width: 45%;
   display: grid;
   justify-content: center;
+  cursor: pointer;
   box-shadow:  -.15rem .15rem 0 #082535;
   border: none;
   padding: 15px 32px;

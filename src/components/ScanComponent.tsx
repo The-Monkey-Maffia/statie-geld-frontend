@@ -78,7 +78,7 @@ const styles = {
 
     'title': css`
     margin: 0;
-    text-shadow: -.1rem .1rem 0 #5E6161;
+    text-shadow: -.1rem .1rem 0 #082535;
     user-select: none;`,
 };
 
