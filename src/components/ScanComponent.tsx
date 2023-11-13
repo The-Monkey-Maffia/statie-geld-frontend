@@ -14,10 +14,9 @@ async function getBarcodeTitle(barcode: string) {
 }
 
 function ScanComponent() {
-    const [scannedCodes, setScannedCodes] = useState<string[]>(["3254381062561", "3254381062561", "3254381062561","3254381062561"]);
+    const [scannedCodes, setScannedCodes] = useState<string[]>([]);
     const [titles, setTitles] = useState<string[]>([]);
     let barcode: string = '';
-
     const handleKeyPress = async (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
             setScannedCodes([...scannedCodes, barcode]);
@@ -58,9 +57,11 @@ function ScanComponent() {
             <ul className={styles['card']}>
             <h1 className={styles['title']}>Products</h1>
                 {titles.map((title, index) => {
+                    if (typeof title === 'string' && title.length !== undefined && title.length !== 0) {
                         return (
                             <li className={styles['item']} key={index}>1x {title}</li>
                         )
+                    }
                     }
                 )}
             </ul>
