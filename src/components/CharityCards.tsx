@@ -64,7 +64,7 @@ const styles = {
   width: 45%;
   display: grid;
   justify-content: center;
-  box-shadow:  -.15rem .15rem 0 #164863;
+  box-shadow:  -.15rem .15rem 0 #082535;
   border: none;
   padding: 15px 32px;
   display: inline-block;
@@ -84,13 +84,13 @@ const styles = {
   object-fit: cover;
   background-position: center;
   border-radius: 100vw;
-  box-shadow: -.15rem .15rem .25rem #164863;`,
+  box-shadow: -.15rem .15rem .25rem #082535;`,
 
   'title': css `
   font-size: 3rem;
   display: inline;
   color: white;
-  text-shadow: .1rem .1rem 0 #164863;`
+  text-shadow: .1rem .1rem 0 #082535;`
 }
 
 export default CharityCards
