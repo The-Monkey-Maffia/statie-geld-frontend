@@ -54,12 +54,12 @@ function ScanComponent() {
             <h1 className={styles['title']}>Products</h1>
                 {Object.entries(scannedCodes).map(([barcode, value]) => {
                     const title = titles[barcode]
-                    console.log(value)
-                    return (
-                        <li id='product' className={styles['item']} key={1}>{value}x {title}</li>
-                    )
+                    if (typeof title === 'string' && title.length !== undefined && title.length !== 0) {
+                        return (
+                            <li id='product' className={styles['item']} key={1}>{value}x {title}</li>
+                        )
+                    }
                 })}
-                <a className={styles['temp-button']} href='/votes'>:TEMP BTN:</a>
             {Object.keys(titles).length !== 0 && <a className={styles['button']} href='/votes'>VOTE!</a>}
             </ul>
 
