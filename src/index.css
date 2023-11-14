@@ -43,22 +43,26 @@ body {
   margin-right: 1rem;
 }
 
-@media only screen and (max-width: 845px) {
+@media only screen and (max-width: 1193px) {
   .leaderboard {
     width: 40rem;
     padding: .8rem;
   }
 }
-@media only screen and (max-width: 685px) {
+@media only screen and (max-width: 1030px) {
   .leaderboard {
     width: 30rem;
     padding: .6rem;
   }
 }
-@media only screen and (max-width: 535px) {
+@media only screen and (max-width: 860px) {
   .leaderboard {
-    width: 100%;
+    width: 95vw;
     padding: .4rem;
+  }
+  .productInfo {
+    position: relative;
+    margin-right: 1rem;
   }
 }
 .title {

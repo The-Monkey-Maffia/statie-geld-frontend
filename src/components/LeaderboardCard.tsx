@@ -27,7 +27,7 @@ interface LeaderboardCardProps {
           <div>
           <p className={styles.placement}>#{placement}</p> {/* Hier wordt de plaatsing weergegeven */}
           </div>
-          <div className="votes">
+          <div className={styles["votes"]}>
             {score} {/* Hier wordt de score weergegeven */}
           </div>
         </div>
@@ -44,7 +44,7 @@ const styles = {
     border-bottom: 1px solid #164863;
     border-radius: .5rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     padding: .25rem;
     margin-bottom: .5rem;
     height: 100%;
@@ -75,6 +75,7 @@ const styles = {
     justify-content: start;
     align-items: start;
     font-size: 2rem;
+    text-shadow: -.1rem .1rem 0 #082535;
     margin: 0;
     font-weight: 900;`,
 
@@ -82,24 +83,27 @@ const styles = {
     font-weight: 100;
     font-size: 1rem;
     margin: 0;
+    text-shadow: -.1rem .1rem 0 #082535;
     display: flex;
     justify-content: start;`,
 
     'right-info': css`
     height: 100%;
-    width: 11%;
+    width: 30%;
     display: flex;
-    justify-content: start;
+    justify-content: end;
     align-items: center;`,
 
     'placement': css`
     font-weight: 900;
     font-size: 3rem;
+    text-shadow: -.1rem .1rem 0 #082535;
     margin: 0;`,
 
     'votes': css`
     font-weight: 400;
     font-size: 1rem;
+    text-shadow: -.1rem .1rem 0 #082535;
     margin: 0;`,
 }
 

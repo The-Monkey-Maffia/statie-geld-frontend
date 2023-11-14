@@ -52,6 +52,8 @@ function ScanComponent() {
         };
     }, [handleKeyPress]);
 
+    const hasValidTitle = titles.some((title) => typeof title === 'string' && title.length !== undefined && title.length !== 0);
+
     return (
         <div className='productInfo'>
             <ul className={styles['card']}>
@@ -59,12 +61,16 @@ function ScanComponent() {
                 {titles.map((title, index) => {
                     if (typeof title === 'string' && title.length !== undefined && title.length !== 0) {
                         return (
-                            <li className={styles['item']} key={index}>1x {title}</li>
+                            <li id='product' className={styles['item']} key={index}>1x {title}</li>
                         )
                     }
                     }
                 )}
+            {hasValidTitle && <a className={styles['button']} href='/votes'>VOTE!</a>}
             </ul>
+
+
+
         </div>
     );
 };
@@ -72,8 +78,12 @@ function ScanComponent() {
 const styles = {
     'card': css`
     background: #164863;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
     box-shadow: -.15rem .15rem 0 #082535;
-    width: 10rem;
+    width: 9rem;
     border-radius: .25rem;
     list-style: none;
     padding: .25rem .5rem;`,
@@ -86,6 +96,18 @@ const styles = {
     'title': css`
     margin: 0;
     text-shadow: -.1rem .1rem 0 #082535;
+    user-select: none;`,
+
+    'button': css`
+    background: #9BBEC8;
+    color: white;
+    padding: .35rem 3rem;
+    border-radius: .25rem;
+    box-shadow: -.1rem .1rem 0 #082535;
+    margin-top: .5rem;
+    margin-bottom: .25rem;
+    text-decoration: none;
+    text-shadow: -.075rem .075rem 0 #082535;
     user-select: none;`,
 };
 
