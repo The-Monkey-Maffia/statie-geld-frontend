@@ -47,6 +47,8 @@ const CharityCards: React.FC<CharityCardProps> = ({ photo, name }) => {
               title: 'Error',
               text: 'U heeft al gestemd voor vandaag, probeer morgen weer',
               icon: 'error'
+            }).then(() => {
+              document.location.href='http://localhost:5173';
             });
           });
         }

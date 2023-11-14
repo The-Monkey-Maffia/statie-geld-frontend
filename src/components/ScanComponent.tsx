@@ -59,6 +59,7 @@ function ScanComponent() {
                         <li id='product' className={styles['item']} key={1}>{value}x {title}</li>
                     )
                 })}
+                <a className={styles['temp-button']} href='/votes'>:TEMP BTN:</a>
             {Object.keys(titles).length !== 0 && <a className={styles['button']} href='/votes'>VOTE!</a>}
             </ul>
 
@@ -94,6 +95,16 @@ const styles = {
     background: #9BBEC8;
     color: white;
     padding: .35rem 3rem;
+    border-radius: .25rem;
+    box-shadow: -.1rem .1rem 0 #082535;
+    margin-top: .5rem;
+    margin-bottom: .25rem;
+    text-decoration: none;
+    user-select: none;`,
+    'temp-button': css`
+    background: #9BBEC8;
+    color: white;
+    padding: .35rem 1.5rem;
     border-radius: .25rem;
     box-shadow: -.1rem .1rem 0 #082535;
     margin-top: .5rem;

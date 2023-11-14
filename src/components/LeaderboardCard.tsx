@@ -46,7 +46,7 @@ const styles = {
     border-radius: .5rem;
     display: flex;
     justify-content: start;
-    padding: .25rem;
+    padding: .5rem 1rem;
     margin-bottom: .5rem;
     height: 100%;
     user-select: none;`,
@@ -61,7 +61,7 @@ const styles = {
     height: 4.5rem;
     width: 4.5rem;
     border-radius: 100vw;
-    margin-right: 7.5%;
+    margin-right: 1rem;
     box-shadow: .1rem .1rem .25rem #164863;`,
 
     'charity-info': css`
@@ -99,8 +99,8 @@ const styles = {
     margin: 0;`,
 
     'votes': css`
-    font-weight: 400;
-    font-size: 1rem;
+    font-weight: 900;
+    font-size: 1.25rem;
     margin: 0;`,
 }
 
