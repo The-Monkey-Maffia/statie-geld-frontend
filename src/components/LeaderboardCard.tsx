@@ -4,15 +4,16 @@ import '../index.css';
 interface LeaderboardCardProps {
     name: string;
     description: string;
+    link: string,
     score: number;
     placement: number;
   }
   
-  const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ name, score, description, placement }) => {
+  const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ name, score, description, placement, link }) => {
     return (
       <div className={styles['leaderboard-card']}>
         <div className={styles['left-info']}>
-          {/* <img className={styles['charity-logo']} src=''/> */}
+          <img className={styles['charity-logo']} src={link}/>
           <div className={styles['charity-info']}>
             <div>
               <p className={styles['charity-name']}>{name}</p>
@@ -27,7 +28,7 @@ interface LeaderboardCardProps {
           <div>
           <p className={styles.placement}>#{placement}</p> {/* Hier wordt de plaatsing weergegeven */}
           </div>
-          <div className="votes">
+          <div className={styles["votes"]}>
             {score} {/* Hier wordt de score weergegeven */}
           </div>
         </div>
@@ -44,8 +45,8 @@ const styles = {
     border-bottom: 1px solid #164863;
     border-radius: .5rem;
     display: flex;
-    justify-content: space-between;
-    padding: .25rem;
+    justify-content: start;
+    padding: .5rem 1rem;
     margin-bottom: .5rem;
     height: 100%;
     user-select: none;`,
@@ -60,7 +61,7 @@ const styles = {
     height: 4.5rem;
     width: 4.5rem;
     border-radius: 100vw;
-    margin-right: 7.5%;
+    margin-right: 1rem;
     box-shadow: .1rem .1rem .25rem #164863;`,
 
     'charity-info': css`
@@ -87,9 +88,9 @@ const styles = {
 
     'right-info': css`
     height: 100%;
-    width: 11%;
+    width: 30%;
     display: flex;
-    justify-content: start;
+    justify-content: end;
     align-items: center;`,
 
     'placement': css`
@@ -98,8 +99,8 @@ const styles = {
     margin: 0;`,
 
     'votes': css`
-    font-weight: 400;
-    font-size: 1rem;
+    font-weight: 900;
+    font-size: 1.25rem;
     margin: 0;`,
 }
 

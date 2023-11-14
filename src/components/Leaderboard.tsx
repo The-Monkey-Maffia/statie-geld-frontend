@@ -23,7 +23,7 @@ const Leaderboard = () => {
       {
         apiData?.map((charity: {aantal_votes: number, id: number, info: string, link: string, name: string}, index: number) => {
           return (
-            <LeaderboardCard key={index} name={charity.name} description={charity.info} score={charity.aantal_votes} placement={index += 1} />
+            <LeaderboardCard key={index} name={charity.name} description={charity.info} score={charity.aantal_votes} placement={index += 1} link={charity.link} />
           )
         })
       }

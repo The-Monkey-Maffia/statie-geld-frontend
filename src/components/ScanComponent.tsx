@@ -14,31 +14,26 @@ async function getBarcodeTitle(barcode: string) {
 }
 
 function ScanComponent() {
-    const [scannedCodes, setScannedCodes] = useState<string[]>([]);
-    const [titles, setTitles] = useState<string[]>([]);
-    let barcode: string = '';
+    const [scannedCodes, setScannedCodes] = useState<{[key: string]: number}>({});
+    const [titles, setTitles] = useState<{ [key: string]: string | undefined }>({});
+    let barcode = '';
     const handleKeyPress = async (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
-            setScannedCodes([...scannedCodes, barcode]);
+            if (!/[a-zA-Z]/.test(barcode)) {
+                if (!scannedCodes[barcode]){
+                    setScannedCodes({...scannedCodes, [barcode]: 1})
+                    const title = await getBarcodeTitle(barcode);
+                    setTitles({ ...titles, [barcode]: title });
+                } else {
+                    const updatedBarcodeValue = scannedCodes[barcode] += 1
+                    setScannedCodes({...scannedCodes, [barcode]: updatedBarcodeValue})
+                }
+            }
             barcode = ''; // Clear the barcode string
         } else {
             barcode = barcode + event.key;
         }
     };
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const promises = scannedCodes.map(async (data) => {
-                const title = await getBarcodeTitle(data);
-                return title;
-            });
-
-            const titles = await Promise.all(promises);
-            setTitles(titles);
-        };
-
-        fetchData();
-    }, [scannedCodes]);
 
     useEffect(() => {
         const handleKeyPressEvent = (event: KeyboardEvent) => {
@@ -52,19 +47,24 @@ function ScanComponent() {
         };
     }, [handleKeyPress]);
 
+
     return (
         <div className='productInfo'>
             <ul className={styles['card']}>
             <h1 className={styles['title']}>Products</h1>
-                {titles.map((title, index) => {
+                {Object.entries(scannedCodes).map(([barcode, value]) => {
+                    const title = titles[barcode]
                     if (typeof title === 'string' && title.length !== undefined && title.length !== 0) {
                         return (
-                            <li className={styles['item']} key={index}>1x {title}</li>
+                            <li id='product' className={styles['item']} key={1}>{value}x {title}</li>
                         )
                     }
-                    }
-                )}
+                })}
+            {Object.keys(titles).length !== 0 && <a className={styles['button']} href='/votes'>VOTE!</a>}
             </ul>
+
+
+
         </div>
     );
 };
@@ -72,8 +72,12 @@ function ScanComponent() {
 const styles = {
     'card': css`
     background: #164863;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
     box-shadow: -.15rem .15rem 0 #082535;
-    width: 10rem;
+    width: 9rem;
     border-radius: .25rem;
     list-style: none;
     padding: .25rem .5rem;`,
@@ -85,7 +89,27 @@ const styles = {
 
     'title': css`
     margin: 0;
-    text-shadow: -.1rem .1rem 0 #082535;
+    user-select: none;`,
+
+    'button': css`
+    background: #9BBEC8;
+    color: white;
+    padding: .35rem 3rem;
+    border-radius: .25rem;
+    box-shadow: -.1rem .1rem 0 #082535;
+    margin-top: .5rem;
+    margin-bottom: .25rem;
+    text-decoration: none;
+    user-select: none;`,
+    'temp-button': css`
+    background: #9BBEC8;
+    color: white;
+    padding: .35rem 1.5rem;
+    border-radius: .25rem;
+    box-shadow: -.1rem .1rem 0 #082535;
+    margin-top: .5rem;
+    margin-bottom: .25rem;
+    text-decoration: none;
     user-select: none;`,
 };
 
