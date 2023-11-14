@@ -14,34 +14,26 @@ async function getBarcodeTitle(barcode: string) {
 }
 
 function ScanComponent() {
-    const [scannedCodes, setScannedCodes] = useState<string[]>([]);
-    const [titles, setTitles] = useState<string[]>([]);
-    let barcode: string = '';
-    console.log(scannedCodes)
+    const [scannedCodes, setScannedCodes] = useState<{[key: string]: number}>({});
+    const [titles, setTitles] = useState<{ [key: string]: string | undefined }>({});
+    let barcode = '';
     const handleKeyPress = async (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
             if (!/[a-zA-Z]/.test(barcode)) {
-                setScannedCodes([...scannedCodes, barcode]);
+                if (!scannedCodes[barcode]){
+                    setScannedCodes({...scannedCodes, [barcode]: 1})
+                    const title = await getBarcodeTitle(barcode);
+                    setTitles({ ...titles, [barcode]: title });
+                } else {
+                    const updatedBarcodeValue = scannedCodes[barcode] += 1
+                    setScannedCodes({...scannedCodes, [barcode]: updatedBarcodeValue})
+                }
             }
             barcode = ''; // Clear the barcode string
         } else {
             barcode = barcode + event.key;
         }
     };
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const promises = scannedCodes.map(async (data) => {
-                const title = await getBarcodeTitle(data);
-                return title;
-            });
-
-            const titles = await Promise.all(promises);
-            setTitles(titles);
-        };
-
-        fetchData();
-    }, [scannedCodes]);
 
     useEffect(() => {
         const handleKeyPressEvent = (event: KeyboardEvent) => {
@@ -55,21 +47,19 @@ function ScanComponent() {
         };
     }, [handleKeyPress]);
 
-    const hasValidTitle = titles.some((title) => typeof title === 'string' && title.length !== undefined && title.length !== 0);
 
     return (
         <div className='productInfo'>
             <ul className={styles['card']}>
             <h1 className={styles['title']}>Products</h1>
-                {titles.map((title, index) => {
-                    if (typeof title === 'string' && title.length !== undefined && title.length !== 0) {
-                        return (
-                            <li id='product' className={styles['item']} key={index}>1x {title}</li>
-                        )
-                    }
-                    }
-                )}
-            {hasValidTitle && <a className={styles['button']} href='/votes'>VOTE!</a>}
+                {Object.entries(scannedCodes).map(([barcode, value]) => {
+                    const title = titles[barcode]
+                    console.log(value)
+                    return (
+                        <li id='product' className={styles['item']} key={1}>{value}x {title}</li>
+                    )
+                })}
+            {Object.keys(titles).length !== 0 && <a className={styles['button']} href='/votes'>VOTE!</a>}
             </ul>
 
 
