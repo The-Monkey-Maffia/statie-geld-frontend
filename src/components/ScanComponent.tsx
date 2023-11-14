@@ -98,7 +98,6 @@ const styles = {
 
     'title': css`
     margin: 0;
-    text-shadow: -.1rem .1rem 0 #082535;
     user-select: none;`,
 
     'button': css`
@@ -110,7 +109,6 @@ const styles = {
     margin-top: .5rem;
     margin-bottom: .25rem;
     text-decoration: none;
-    text-shadow: -.075rem .075rem 0 #082535;
     user-select: none;`,
 };
 

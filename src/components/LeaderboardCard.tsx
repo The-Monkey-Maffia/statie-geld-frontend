@@ -76,7 +76,6 @@ const styles = {
     justify-content: start;
     align-items: start;
     font-size: 2rem;
-    text-shadow: -.1rem .1rem 0 #082535;
     margin: 0;
     font-weight: 900;`,
 
@@ -84,7 +83,6 @@ const styles = {
     font-weight: 100;
     font-size: 1rem;
     margin: 0;
-    text-shadow: -.1rem .1rem 0 #082535;
     display: flex;
     justify-content: start;`,
 
@@ -98,13 +96,11 @@ const styles = {
     'placement': css`
     font-weight: 900;
     font-size: 3rem;
-    text-shadow: -.1rem .1rem 0 #082535;
     margin: 0;`,
 
     'votes': css`
     font-weight: 400;
     font-size: 1rem;
-    text-shadow: -.1rem .1rem 0 #082535;
     margin: 0;`,
 }
 
