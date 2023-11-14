@@ -17,9 +17,12 @@ function ScanComponent() {
     const [scannedCodes, setScannedCodes] = useState<string[]>([]);
     const [titles, setTitles] = useState<string[]>([]);
     let barcode: string = '';
+    console.log(scannedCodes)
     const handleKeyPress = async (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
-            setScannedCodes([...scannedCodes, barcode]);
+            if (!/[a-zA-Z]/.test(barcode)) {
+                setScannedCodes([...scannedCodes, barcode]);
+            }
             barcode = ''; // Clear the barcode string
         } else {
             barcode = barcode + event.key;

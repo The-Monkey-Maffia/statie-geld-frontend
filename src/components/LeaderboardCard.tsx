@@ -4,15 +4,16 @@ import '../index.css';
 interface LeaderboardCardProps {
     name: string;
     description: string;
+    link: string,
     score: number;
     placement: number;
   }
   
-  const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ name, score, description, placement }) => {
+  const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ name, score, description, placement, link }) => {
     return (
       <div className={styles['leaderboard-card']}>
         <div className={styles['left-info']}>
-          {/* <img className={styles['charity-logo']} src=''/> */}
+          <img className={styles['charity-logo']} src={link}/>
           <div className={styles['charity-info']}>
             <div>
               <p className={styles['charity-name']}>{name}</p>

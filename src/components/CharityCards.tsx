@@ -13,12 +13,13 @@ const CharityCards: React.FC<CharityCardProps> = ({ photo, name }) => {
     return () => {
       Swal.fire({
         title: 'Stemmen voor ' + Vote_Name + '?',
-        text: 'Weet u zeker dat u voor ' + Vote_Name + '. Wilt stemmen?',
+        text: 'Weet u zeker dat u voor "' + Vote_Name + '" wilt stemmen?',
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, vote!'
+        confirmButtonText: 'Ja, stem voor ' + Vote_Name + '!',
+        cancelButtonText: 'Terug',
       }).then((result) => {
         if (result.isConfirmed) {
           const storedValue = localStorage.getItem('STATS_UUID');
@@ -27,25 +28,27 @@ const CharityCards: React.FC<CharityCardProps> = ({ photo, name }) => {
             Vote_name: Vote_Name 
           };
           
-          axios.post('http://127.0.0.1:3000/post/vote/', data)
-            .then(response => {
-              console.log('Response from the server:', response.data);
-              localStorage.setItem('STATS_UUID', response.data.uuid);
-              console.log(localStorage.getItem('STATS_UUID'));
-              Swal.fire({
-                title: 'Voted!',
-                text: 'Your vote has been recorded for ' + Vote_Name + '.',
-                icon: 'success'
-              });
-            })
-            .catch(error => {
-              console.error('Error:', error);
-              Swal.fire({
-                title: 'Error',
-                text: 'U heeft al gestemd voor vandaag, probeer morgen weer',
-                icon: 'error'
-              });
+        axios.post('http://127.0.0.1:3000/post/vote/', data)
+          .then(response => {
+            console.log('Response from the server:', response.data);
+            localStorage.setItem('STATS_UUID', response.data.uuid);
+            console.log(localStorage.getItem('STATS_UUID'));
+            Swal.fire({
+              title: 'Stem gehoord!',
+              text: 'U heeft gestemd voor ' + Vote_Name + '.',
+              icon: 'success'
+            }).then(() => {
+              document.location.href='http://localhost:5173';
             });
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            Swal.fire({
+              title: 'Error',
+              text: 'U heeft al gestemd voor vandaag, probeer morgen weer',
+              icon: 'error'
+            });
+          });
         }
       });
     };
