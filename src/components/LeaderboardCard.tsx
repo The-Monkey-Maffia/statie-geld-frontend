@@ -33,7 +33,7 @@ interface LeaderboardCardProps {
             <p className={styles.placement}>#{placement}</p> {/* Hier wordt de plaatsing weergegeven */}
           </div>
           <div className={styles["votes"]}>
-            €{Math.round(donatedMoney*100)/100}
+            €{(Math.round(donatedMoney*100)/100).toFixed(2)}
           </div>
         </div>
       </div>
