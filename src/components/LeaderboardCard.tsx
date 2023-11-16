@@ -10,6 +10,7 @@ interface LeaderboardCardProps {
   }
   
   const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ name, score, description, placement, link }) => {
+    const donatedMoney = score * 0.15
     return (
       <div className={styles['leaderboard-card']}>
         <div className={styles['left-info']}>
@@ -26,10 +27,10 @@ interface LeaderboardCardProps {
   
         <div className={styles['right-info']}>
           <div>
-          <p className={styles.placement}>#{placement}</p> {/* Hier wordt de plaatsing weergegeven */}
+            <p className={styles.placement}>#{placement}</p> {/* Hier wordt de plaatsing weergegeven */}
           </div>
           <div className={styles["votes"]}>
-            {score} {/* Hier wordt de score weergegeven */}
+            €{Math.round(donatedMoney*100)/100}
           </div>
         </div>
       </div>
@@ -100,7 +101,7 @@ const styles = {
 
     'votes': css`
     font-weight: 900;
-    font-size: 1.25rem;
+    font-size: 2rem;
     margin: 0;`,
 }
 
