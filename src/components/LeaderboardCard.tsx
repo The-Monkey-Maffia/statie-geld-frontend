@@ -13,6 +13,9 @@ interface LeaderboardCardProps {
     return (
       <div className={styles['leaderboard-card']}>
         <div className={styles['left-info']}>
+          <div>
+            <p className={styles.placement}>#{placement}</p> {/* Hier wordt de plaatsing weergegeven */}
+          </div>
           <img className={styles['charity-logo']} src={link}/>
           <div className={styles['charity-info']}>
             <div>
@@ -25,9 +28,6 @@ interface LeaderboardCardProps {
         </div>
   
         <div className={styles['right-info']}>
-          <div>
-          <p className={styles.placement}>#{placement}</p> {/* Hier wordt de plaatsing weergegeven */}
-          </div>
           <div className={styles["votes"]}>
             {score} {/* Hier wordt de score weergegeven */}
           </div>
@@ -96,7 +96,7 @@ const styles = {
     'placement': css`
     font-weight: 900;
     font-size: 3rem;
-    margin: 0;`,
+    margin: 0 .5rem 0 0;`,
 
     'votes': css`
     font-weight: 900;
