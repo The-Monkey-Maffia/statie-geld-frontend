@@ -27,11 +27,7 @@ interface LeaderboardCardProps {
             </div>
           </div>
         </div>
-  
         <div className={styles['right-info']}>
-          <div>
-            <p className={styles.placement}>#{placement}</p> {/* Hier wordt de plaatsing weergegeven */}
-          </div>
           <div className={styles["votes"]}>
             €{(Math.round(donatedMoney*100)/100).toFixed(2)}
           </div>
@@ -43,7 +39,6 @@ interface LeaderboardCardProps {
 
 const styles = {
     'leaderboard-card': css`
-    height: 5rem;
     background-color: #9BBEC8;
     box-shadow:  -.15rem .15rem 0 #164863;
     border-bottom: 1px solid #164863;
@@ -52,12 +47,11 @@ const styles = {
     justify-content: start;
     padding: .5rem 1rem;
     margin-bottom: .5rem;
-    height: 100%;
     user-select: none;`,
 
     'left-info': css`
     display: flex;
-    align-items: center;
+    align-items: top;
     justify-content: start;
     width: 70%;`,
 
@@ -87,6 +81,7 @@ const styles = {
     font-weight: 100;
     font-size: 1rem;
     margin: 0;
+    flex-wrap: wrap;
     display: flex;
     justify-content: start;`,
 

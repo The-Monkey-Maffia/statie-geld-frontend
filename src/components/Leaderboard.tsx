@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import '../index.css';
 import LeaderboardCard from './LeaderboardCard';
 import axios from 'axios';
+import { css } from '@emotion/css'
 
 const Leaderboard = () => {
 
@@ -20,14 +21,24 @@ const Leaderboard = () => {
   return (
     <div className="leaderboard">
       <h1 className='title'>Leaderboard</h1>
-      {
-        apiData?.map((charity: {aantal_votes: number, id: number, info: string, link: string, name: string}, index: number) => {
-          return (
-            <LeaderboardCard key={index} name={charity.name} description={charity.info} score={charity.aantal_votes} placement={index += 1} link={charity.link} />
-          )
-        })
-      }
+      <div className={styles.leaderboardWrapper}>
+        {
+          apiData?.map((charity: {aantal_votes: number, id: number, info: string, link: string, name: string}, index: number) => {
+            return (
+              <LeaderboardCard key={index} name={charity.name} description={charity.info} score={charity.aantal_votes} placement={index += 1} link={charity.link} />
+            )
+          })
+        }
+      </div>
     </div>
   );
 };
+
+const styles = {
+  'leaderboardWrapper': css`
+    overflow-x:hidden;
+    overflow-y:auto;
+    height:85vh;
+  `
+}
 export default Leaderboard;

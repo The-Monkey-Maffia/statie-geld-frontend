@@ -16,6 +16,8 @@ async function getBarcodeTitle(barcode: string) {
 function ScanComponent() {
     const [scannedCodes, setScannedCodes] = useState<{[key: string]: number}>({});
     const [titles, setTitles] = useState<{ [key: string]: string | undefined }>({});
+    console.log(titles)
+    let allValuesAreEmptyStrings = Object.values(titles).every(value => typeof value === 'string' && value === '');
     let barcode = '';
     const handleKeyPress = async (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
@@ -60,7 +62,7 @@ function ScanComponent() {
                         )
                     }
                 })}
-            {Object.keys(titles).length !== 0 && <a className={styles['button']} href='/votes'>VOTE!</a>}
+            {!allValuesAreEmptyStrings && <a className={styles['button']} href='/votes'>VOTE!</a>}
             </ul>
 
 

@@ -83,7 +83,6 @@ const styles = {
     transform: scale(1.05);
   }
   `,
-  
   'charity-logo': css`
   height: 5rem;
   width: 5rem;
