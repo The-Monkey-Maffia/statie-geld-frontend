@@ -52,7 +52,7 @@ function ScanComponent() {
 
     return (
         <div className='productInfo'>
-            <ul className={styles['card']}>
+            <ul  className={styles['card']}>
             <h1 className={styles['title']}>Products</h1>
                 {Object.entries(scannedCodes).map(([barcode, value]) => {
                     const title = titles[barcode]
@@ -64,9 +64,6 @@ function ScanComponent() {
                 })}
             {!allValuesAreEmptyStrings && <a className={styles['button']} href='/votes'>VOTE!</a>}
             </ul>
-
-
-
         </div>
     );
 };
@@ -79,10 +76,27 @@ const styles = {
     justify-content: center;
     align-items: start;
     box-shadow: -.15rem .15rem 0 #082535;
-    width: 9rem;
+    width: 31rem;
     border-radius: .25rem;
     list-style: none;
-    padding: .25rem .5rem;`,
+    padding: .25rem .5rem;
+    
+    @media (max-width: 1900px) {
+        width: 23rem;
+    }
+    @media (max-width: 1669px) {
+        width: 17rem;
+    }
+    @media (max-width: 1470px) {
+        width: 11rem;
+    }
+    @media (max-width: 1284px) {
+        width: 9rem;
+    }
+    @media (max-width: 860px) {
+        width: 100%;
+    }
+    `,
 
     'item': css`
     font-size: 1.1rem;
