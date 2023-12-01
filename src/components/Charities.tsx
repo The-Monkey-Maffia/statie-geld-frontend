@@ -9,9 +9,12 @@ const getCharityData = async () => {
   const requestData = await axios.get('http://localhost:3000/get/goededoel')
   return requestData
 }
-const Charities = () => {
-  const [charities, setCharities] = useState<[{aantal_votes: number, id: number, info: string, link: string, name: string}]>()
 
+interface CharitiesProps{
+  votes: any
+}
+const Charities: React.FC<CharitiesProps> = ({votes}) => {
+  const [charities, setCharities] = useState<[{aantal_votes: number, id: number, info: string, link: string, name: string}]>()
   useEffect(() => {
     const fetchData = async () => {
       const charityData = getCharityData()
@@ -21,14 +24,13 @@ const Charities = () => {
     }
     fetchData()
   }, [])
-
   return (
     <>
       <div className={styles['card']}>
       <h1 className={styles['title']}>Vote</h1>
         <div className={styles['charities']}>
           {charities?.map((player, index) => (
-            <CharityCards key={index} photo={player.link} name={player.name} />
+            <CharityCards key={index} photo={player.link} name={player.name} votes={votes.amount} />
           ))}
         </div>
       </div>

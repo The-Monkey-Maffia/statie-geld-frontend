@@ -6,9 +6,10 @@ import axios from 'axios';
 interface CharityCardProps {
   photo: string;
   name: string;
+  votes: number;
 }
 
-const CharityCards: React.FC<CharityCardProps> = ({ photo, name }) => {
+const CharityCards: React.FC<CharityCardProps> = ({ photo, name, votes }) => {
   const handleButtonClick = (Vote_Name: string) => {
     return () => {
       Swal.fire({
@@ -24,10 +25,10 @@ const CharityCards: React.FC<CharityCardProps> = ({ photo, name }) => {
         if (result.isConfirmed) {
           const storedValue = localStorage.getItem('STATS_UUID');
           const data = {
-            hardware_id: storedValue, 
-            Vote_name: Vote_Name 
+            hardware_id: storedValue,
+            Vote_name: Vote_Name,
+            Votes: votes
           };
-          
         axios.post('http://127.0.0.1:3000/post/vote/', data)
           .then(response => {
             console.log('Response from the server:', response.data);

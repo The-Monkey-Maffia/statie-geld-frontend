@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <Root />,
   },
   {
-    path: '/votes',
+    path: '/votes/:amount',
     element: <Votes />
   }
 ]);
