@@ -16,7 +16,9 @@ async function getBarcodeTitle(barcode: string) {
 function ScanComponent() {
     const [scannedCodes, setScannedCodes] = useState<{[key: string]: number}>({});
     const [titles, setTitles] = useState<{ [key: string]: string | undefined }>({});
-    console.log(titles)
+    const scannedCodesAmount = Object.values(scannedCodes).reduce(
+        (accumulator, currentValue) => accumulator + currentValue,0,)
+    const redirect = `/votes/${scannedCodesAmount}`
     let allValuesAreEmptyStrings = Object.values(titles).every(value => typeof value === 'string' && value === '');
     let barcode = '';
     const handleKeyPress = async (event: KeyboardEvent) => {
@@ -62,11 +64,12 @@ function ScanComponent() {
                         )
                     }
                 })}
-            {!allValuesAreEmptyStrings && <a className={styles['button']} href='/votes'>VOTE!</a>}
+            {!allValuesAreEmptyStrings && <a className={styles['button']} href={redirect}>VOTE!</a>}
+            {!allValuesAreEmptyStrings && <img className={styles.qrcode} src='https://upload.wikimedia.org/wikipedia/commons/2/2f/Rickrolling_QR_code.png?20200615212723' />}
             </ul>
 
 
-
+            
         </div>
     );
 };
@@ -79,7 +82,7 @@ const styles = {
     justify-content: center;
     align-items: start;
     box-shadow: -.15rem .15rem 0 #082535;
-    width: 9rem;
+    width: 100%;
     border-radius: .25rem;
     list-style: none;
     padding: .25rem .5rem;`,
@@ -113,6 +116,13 @@ const styles = {
     margin-bottom: .25rem;
     text-decoration: none;
     user-select: none;`,
+
+    'qrcode': css`
+        margin-top: 5px;
+        margin-bottom: 4px;
+        width: 100%;
+        border-radius: 10px
+    `
 };
 
 export default ScanComponent;

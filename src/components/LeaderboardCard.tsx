@@ -5,12 +5,11 @@ interface LeaderboardCardProps {
     name: string;
     description: string;
     link: string,
-    score: number;
     placement: number;
+    money_donated: number;
   }
   
-  const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ name, score, description, placement, link }) => {
-    const donatedMoney = score * 0.15
+  const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ name, description, placement, link, money_donated }) => {
     return (
       <div className={styles['leaderboard-card']}>
         <div className={styles['left-info']}>
@@ -29,7 +28,7 @@ interface LeaderboardCardProps {
         </div>
         <div className={styles['right-info']}>
           <div className={styles["votes"]}>
-            €{(Math.round(donatedMoney*100)/100).toFixed(2)}
+            €{(Math.round(money_donated*100)/100).toFixed(2)}
           </div>
         </div>
       </div>
