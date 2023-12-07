@@ -4,6 +4,7 @@ import './index.css'
 import Root from './pages/Root';
 import Votes from './pages/Votes';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Login from './pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: '/votes/:amount',
     element: <Votes />
+  },
+  {
+    path: 'login',
+    element: <Login />
   }
 ]);
 

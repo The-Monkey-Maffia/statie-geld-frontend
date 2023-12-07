@@ -15,8 +15,8 @@ async function getBarcodeTitle(barcode: string) {
 }
 
 function ScanComponent() {
-    const [scannedCodes, setScannedCodes] = useState<{[key: string]: number}>({});
-    const [titles, setTitles] = useState<{ [key: string]: string | undefined }>({});
+    const [scannedCodes, setScannedCodes] = useState<{[key: string]: number}>({"20385873": 5});
+    const [titles, setTitles] = useState<{ [key: string]: string | undefined }>({"20385873": "cola"});
     const scannedCodesAmount = Object.values(scannedCodes).reduce(
         (accumulator, currentValue) => accumulator + currentValue,0,)
     const redirect = `/votes/${scannedCodesAmount}`
