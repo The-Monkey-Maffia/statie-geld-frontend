@@ -25,7 +25,6 @@ const Leaderboard = () => {
       <div className={styles.leaderboardWrapper}>
         {
           apiData?.map((charity: {aantal_votes: number, id: number, info: string, link: string, money_donated?: number, name: string}, index: number) => {
-            console.log(charity.money_donated)
             return (
               <LeaderboardCard key={index} name={charity.name} description={charity.info} placement={index += 1} link={charity.link} money_donated={charity.money_donated} />
             )

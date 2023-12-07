@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { css } from '@emotion/css'
 import { useEffect, useState } from 'react';
+import ScannedProduct from './ ScannedProduct';
 
 async function getBarcodeTitle(barcode: string) {
     const response = await axios.get(`http://localhost:3000/get/drinks/${barcode}`)
@@ -60,7 +61,7 @@ function ScanComponent() {
                     const title = titles[barcode]
                     if (typeof title === 'string' && title.length !== undefined && title.length !== 0) {
                         return (
-                            <li id='product' className={styles['item']} key={1}>{value}x {title}</li>
+                            <ScannedProduct value={value} title={title} barcode={barcode} />
                         )
                     }
                 })}
@@ -102,6 +103,7 @@ const styles = {
     `,
 
     'item': css`
+    width:100%;
     font-size: 1.1rem;
     border-bottom: 1px solid lightblue;
     user-select: none;`,
@@ -134,8 +136,8 @@ const styles = {
     'qrcode': css`
         margin-top: 5px;
         margin-bottom: 4px;
-        width: 100%;
-        border-radius: 10px
+        width: 9rem;
+        border-radius: 5px
     `
 };
 
